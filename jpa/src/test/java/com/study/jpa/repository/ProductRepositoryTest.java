@@ -1,5 +1,6 @@
 package com.study.jpa.repository;
 
+import com.study.jpa.chap01_basic.repository.ProductRepository;
 import com.study.jpa.entity.Product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
