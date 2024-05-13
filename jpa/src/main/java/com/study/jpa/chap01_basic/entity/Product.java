@@ -1,11 +1,10 @@
-package com.study.jpa.entity;
+package com.study.jpa.chap01_basic.entity;
 
 
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +14,6 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@SpringBootApplication
 @Builder
 @Entity
 @Table(name = "tbl_product")

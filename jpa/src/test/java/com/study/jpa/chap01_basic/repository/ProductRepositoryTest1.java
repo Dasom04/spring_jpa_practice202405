@@ -1,7 +1,6 @@
-package com.study.jpa.repository;
+package com.study.jpa.chap01_basic.repository;
 
-import com.study.jpa.chap01_basic.repository.ProductRepository;
-import com.study.jpa.entity.Product;
+import com.study.jpa.chap01_basic.entity.Product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-import static com.study.jpa.entity.Product.Category.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.study.jpa.chap01_basic.entity.Product.Category.FASHION;
+import static com.study.jpa.chap01_basic.entity.Product.Category.FOOD;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @Transactional // jpa는 트렌잭션 단위로 동작하기 때문에 설정.
 @Rollback(false) // 테스트 클래스에서 트랜젝션을 사용하면 Rollback이 자동으로 됨 -> Rollback 막기.
-class ProductRepositoryTest {
+class ProductRepositoryTest1 {
 
     @Autowired
     ProductRepository productRepository;
