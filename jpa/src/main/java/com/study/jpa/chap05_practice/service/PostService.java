@@ -31,11 +31,11 @@ public class PostService {
     private final HashTagRepository hashTagRepository;
 
 
-    public PostListResponseDTO getPost(PageDTO dto) {
+    public PostListResponseDTO getPosts(PageDTO dto) {
 
         // Pageable 객체 생성
         Pageable pageable = PageRequest.of(
-                dto.getPage(),
+                dto.getPage() -1,
                 dto.getSize(),
                 Sort.by("createDate").descending()
 
@@ -53,7 +53,7 @@ public class PostService {
                 .map(PostDetailResponseDTO::new)
                 .collect(Collectors.toList());
 
-        // DB에서 조회한 정보를 JSON 형태에 맞는 DTO로 변황.
+        // DB에서 조회한 정보를 JSON 형태에 맞는 DTO로 변환.
         // 페이지 구성 정보와 위에 있는 게시물 정보를 또다른 DTO로 한번에 포장해서 리턴할 예정.
         // -> PostListResponseDTO
 
