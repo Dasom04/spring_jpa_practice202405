@@ -14,11 +14,9 @@ import java.util.List;
 @Builder
 public class PostCreateDTO {
 
-    // @NotNull -> null을 허용하지 않음 "", " " 허용
-    // @NotEmpty -> null,
-
-
-    @NotBlank // null, 빈 문자, 공백 모두 허용하지 않음
+    // @NotNull -> null을 허용하지 않음. "", " "은 허용.
+    // @NotEmpty -> null, ""을 허용하지 않음, " "은 허용.
+    @NotBlank // -> null, "", " " 모두를 허용하지 않음.
     @Size(min = 2, max = 5)
     private String writer;
 

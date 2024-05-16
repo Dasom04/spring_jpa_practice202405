@@ -101,7 +101,7 @@ public class PostService {
                  INSERT는 트랜잭션 종료 후 실행.)
             */
 
-                saved.addHashTag(hashTag);
+                saved.addHashTag(savedTag);
             });
         }
 
