@@ -66,7 +66,7 @@ public class PostService {
 
     public PostDetailResponseDTO getDetail(Long id) throws Exception {
 
-        final Post post = getPost(id);
+        Post post = getPost(id);
 
         return new PostDetailResponseDTO(post);
 
@@ -84,7 +84,7 @@ public class PostService {
         Post saved = postRepository.save(dto.toEntity());
 
         // 해시태그 저장
-        List<String> hashTags = dto.getHashTag();
+        List<String> hashTags = dto.getHashTags();
         if (hashTags != null && !hashTags.isEmpty()) {
             hashTags.forEach(ht -> {
                 HashTag hashTag = HashTag.builder()
@@ -126,9 +126,9 @@ public class PostService {
         postEntity.setContent(dto.getContent());
 
         // 수정 완료
-        Post modifyPost = postRepository.save(postEntity);
+        Post modifiedPost = postRepository.save(postEntity);
 
-        return new PostDetailResponseDTO(modifyPost);
+        return new PostDetailResponseDTO(modifiedPost);
 
     }
 
