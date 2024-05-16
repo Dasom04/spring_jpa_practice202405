@@ -21,7 +21,7 @@ public class HashTag {
 
     private String tagName; // 해시태그 이름
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "post_no") // "post_no"가 포린키로 추가됨
     private Post post;
 

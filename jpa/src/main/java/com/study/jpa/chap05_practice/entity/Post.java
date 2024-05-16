@@ -21,7 +21,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "post_id")
+    @Column(name = "post_no")
     private Long id; // 글 번호
 
     @Column(nullable = false)
@@ -39,8 +39,8 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updateDate; // 수정 시간
 
-    @OneToMany(mappedBy = "post") // 연관관계 주인이 아니니까 post객체의 이름을 적어준다
-    @Builder.Default // Builder 패턴으로 객체를 생성할 때, 특정 필드를 직접 지정한 값으로 촉시화 하는 것을 강제.
+    @OneToMany(mappedBy = "post", orphanRemoval = true) // 연관관계 주인이 아니니까 post객체의 이름을 적어준다
+    @Builder.Default // Builder 패턴으로 객체를 생성할 때, 특정 필드를 직접 지정한 값으로 초기화 하는 것을 강제.
     List<HashTag> hashTags = new ArrayList<>(); // 실제 DB에 세팅되는게 아님
 
     // 양방향 관계에서 리스트쪽에 데이터를 추가하는 편의 메서드 생성.
@@ -57,11 +57,6 @@ public class Post {
         }
 
     }
-
-
-
-
-
 
 
 
